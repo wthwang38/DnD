@@ -19,3 +19,7 @@ original user has no choice on who is coming (blind date)
  
  
  test update
+ npm install expo-dev-client - IOS
+ npx expo install @expo/webpack-config - on desktop website
+ 
+
