@@ -16,6 +16,4 @@ another user who also picked the same time and place will be picked to join.
 original user has no choice on who is coming (blind date)
 
  user has own rating based on past blind dates.
- 
- 
- test update
+
