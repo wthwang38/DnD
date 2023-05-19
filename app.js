@@ -7,6 +7,9 @@ const connectDB = require('./db/connect');
 const cors = require('cors'); // Cross origin resource sharing
 const restaurantRouter = require('./routes/restaurant'); 
 const userRouter = require('./routes/user');
+const errorHandlerMiddleware = require('./middleware/error-handling');
+const notFound = require('./middleware/not-found');
+
 
 // Allows req.body to be captured for input
 app.use(express.json())
@@ -14,13 +17,16 @@ app.use(express.json())
 // Allow for cross-origin requests on APIs
 app.use(cors());
 
-
 // Routers
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/restaurants', restaurantRouter);
 
-const port = process.env.PORT || 3000; 
+// Middleware error-handling functions
+app.use(errorHandlerMiddleware);
+app.use(notFound);
 
+// Connect to MongoDB and start server
+const port = process.env.PORT || 3000; 
 const startServer = async () => {
   try {
     await connectDB(process.env.MONGO_URI);
